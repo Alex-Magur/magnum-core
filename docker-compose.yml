@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  magnum-executor:
+    image: python:3.11-slim
+    container_name: magnum-executor
+    working_dir: /app
+    networks:
+      - n8n_default
+    command: tail -f /dev/null
+
+networks:
+  n8n_default:
+    external: true
