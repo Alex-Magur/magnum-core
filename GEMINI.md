@@ -55,7 +55,7 @@ Code changes in `/srv/dev-team/` apply immediately.
 **Single Source of Truth:** [`VERSION_MANIFEST.md`](file:///srv/dev-team/VERSION_MANIFEST.md)
 
 **Current Stack (Auto-sync with manifest):**
-- **Python:** `3.12+` (Strict typing required)
+- **Python:** `3.11` (Strict typing required)
 - **PostgreSQL:** `16-alpine` (n8n-postgres-1)
 - **Qdrant:** `latest` (vector database)
 - **Docker Engine:** `29.1.4`
@@ -80,7 +80,7 @@ python skills/config-validator/validator.py --check-versions <file>
 ## 4. DEVELOPMENT STANDARDS (THE MAGNUM WAY)
 
 ### Language & Style
-- **Python:** 3.12+ (Strict typing required)
+- **Python:** 3.11 (Strict typing required)
 - **Formatter:** Black (use `code-formatter` skill)
 - **Linter:** Pylint (use `code-linter` skill)
 - **Testing:** pytest (use `test-runner` skill)
