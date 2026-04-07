@@ -1,0 +1,27 @@
+# Secrets & Keys (Zero-Trust)
+.env
+.env.*
+*.pem
+*.crt
+*.key
+*.svid
+*jwks.json
+
+# Storage & Databases
+*.sqlite
+*.sqlite3
+*.db
+storage/sqlite/*
+!storage/sqlite/.gitkeep
+storage/qdrant/*
+!storage/qdrant/.gitkeep
+
+# Caches & Logs
+__pycache__/
+*.pyc
+.cache/
+*.log
+logs/
+
+# OS generated files
+.DS_Store
