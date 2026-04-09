@@ -1,35 +1,23 @@
-name: Jules Workspace Verification
-
+name: Jules Verification
 on:
   push:
-    branches:
-      - jules-workspace
-
+    branches: [jules-workspace]
 jobs:
   test_and_merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-
-      - name: Install dependencies
+      - name: Install
         run: |
           pip install pytest pytest-asyncio python-dotenv cryptography httpx pyjwt motor python-jose[cryptography] fastapi pydantic
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      - name: Run Tests
+      - name: Run
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/services
           pytest tests/
-
-      - name: Merge to Approved Code on Success
+      - name: Merge
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
