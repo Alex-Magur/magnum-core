@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pytest python-dotenv
+          pip install pytest python-dotenv pytest-asyncio
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run Tests
