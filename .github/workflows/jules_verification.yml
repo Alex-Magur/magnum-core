@@ -9,13 +9,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.12' # Поднимаем до нужной тестам
+          python-version: '3.12'
       - name: Install
         run: |
-          pip install pytest pytest-asyncio python-dotenv cryptography httpx pyjwt motor python-jose[cryptography] fastapi pydantic pydantic-settings
+          pip install pytest pytest-asyncio python-dotenv cryptography httpx pyjwt motor python-jose[cryptography] fastapi pydantic pydantic-settings respx
       - name: Run
         run: |
-          mkdir -p models_data # Создаем заглушку, чтобы тест не падал
+          mkdir -p $(pwd)/models_data
           export PYTHONPATH=$PYTHONPATH:$(pwd)/services/forge_api/src
           pytest tests/
       - name: Merge
