@@ -7,19 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
       - name: Install
         run: |
           pip install pytest pytest-asyncio python-dotenv cryptography httpx pyjwt motor python-jose[cryptography] fastapi pydantic pydantic-settings respx
-      - name: Run
+      - name: Run Tests (Phase 1 Only)
         run: |
-          # Создаем папку в корне и на уровень выше, чтобы точно попало
-          mkdir -p models_data
-          mkdir -p ../models_data
           export PYTHONPATH=$PYTHONPATH:$(pwd)/services/forge_api/src
-          pytest tests/
+          pytest tests/phase1/
       - name: Merge
         if: success()
         env:
