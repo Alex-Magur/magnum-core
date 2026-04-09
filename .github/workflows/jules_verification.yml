@@ -15,7 +15,9 @@ jobs:
           pip install pytest pytest-asyncio python-dotenv cryptography httpx pyjwt motor python-jose[cryptography] fastapi pydantic pydantic-settings respx
       - name: Run
         run: |
-          mkdir -p $(pwd)/models_data
+          # Создаем папку в корне и на уровень выше, чтобы точно попало
+          mkdir -p models_data
+          mkdir -p ../models_data
           export PYTHONPATH=$PYTHONPATH:$(pwd)/services/forge_api/src
           pytest tests/
       - name: Merge
