@@ -22,7 +22,7 @@ jobs:
           pip install pytest pytest-asyncio python-dotenv cryptography httpx pyjwt motor python-jose[cryptography] fastapi pydantic pydantic-settings respx
       - name: Run Tests (Phase 1 Only)
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/services/forge_api/src
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/services/forge_api/src:$(pwd)/libs/forge_retrieval/src
           pytest tests/phase1/
       - name: Merge
         if: success()
