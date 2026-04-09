@@ -1,0 +1,24 @@
+[project]
+name = "forge-graph-worker"
+version = "12.0.0"
+description = "Forge Graph Worker — Durable State Machine (LangGraph)"
+requires-python = ">= 3.12"
+
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.5.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.uv.sources]
+forge-security = { path = "../../libs/forge_security", editable = true }
+forge-storage = { path = "../../libs/forge_storage", editable = true }
+forge-telemetry = { path = "../../libs/forge_telemetry", editable = true }

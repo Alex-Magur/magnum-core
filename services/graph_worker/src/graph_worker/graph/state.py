@@ -1,0 +1,1 @@
+"""graph.state — Implementation placeholder."""

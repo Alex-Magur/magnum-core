@@ -1,0 +1,22 @@
+[project]
+name = "diamond-citadel"
+version = "12.0.0"
+description = "MCP-native, A2A-ready, Zero-Trust LLM code-agent platform"
+requires-python = ">=3.12"
+
+[tool.uv.workspace]
+members = ["libs/*", "services/*"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "phase0: инфраструктура",
+    "phase1: криптография",
+    "phase2: изоляция",
+    "phase3: логика",
+    "phase4: политики",
+    "phase5: интеграция"
+]

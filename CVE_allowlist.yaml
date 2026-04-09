@@ -1,0 +1,11 @@
+# CVE Allowlist — False Positive Exceptions
+# ADR Б2.2: Entries MUST be reviewed and approved via PR review.
+# Format:
+#   - cve: CVE-YYYY-NNNNN
+#     package: <package-name>
+#     reason: <justification>
+#     reviewer: <github-handle>
+#     approved_at: <ISO-8601>
+#     expires_at: <ISO-8601>
+
+allowlist: []

@@ -1,0 +1,22 @@
+services:
+  tg-gateway:
+    build:
+      context: .
+      network: host
+    container_name: dc-tg-gateway
+    restart: unless-stopped
+    secrets:
+      - tg_bot_token.txt
+      - google_api_key.txt
+    networks:
+      - dc_internal
+
+secrets:
+  tg_bot_token.txt:
+    file: /srv/dev-team/secrets/tg_bot_token.txt
+  google_api_key.txt:
+    file: /srv/dev-team/secrets/google_api_key.txt
+
+networks:
+  dc_internal:
+    external: true

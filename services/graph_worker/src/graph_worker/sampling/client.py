@@ -1,0 +1,1 @@
+"""sampling.client — Implementation placeholder."""

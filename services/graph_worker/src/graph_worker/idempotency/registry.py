@@ -1,0 +1,1 @@
+"""idempotency.registry — Implementation placeholder."""

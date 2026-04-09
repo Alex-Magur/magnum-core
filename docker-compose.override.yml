@@ -1,0 +1,48 @@
+# Docker Compose Override — Development Environment
+# This file is automatically loaded alongside docker-compose.yml
+
+services:
+  forge-api:
+    build:
+      target: dev
+    environment:
+      - FORGE_ENV=development
+      - FORGE_LOG_LEVEL=DEBUG
+    volumes:
+      - ./services/forge_api/src:/app/src:ro
+    ports:
+      - "8443:8443"
+      - "8080:8080"  # Debug port
+
+  graph-worker:
+    build:
+      target: dev
+    environment:
+      - FORGE_ENV=development
+      - FORGE_LOG_LEVEL=DEBUG
+    volumes:
+      - ./services/graph_worker/src:/app/src:ro
+
+  mcp-gateway:
+    build:
+      target: dev
+    environment:
+      - FORGE_ENV=development
+    volumes:
+      - ./services/mcp_gateway/src:/app/src:ro
+
+  jcodemunch:
+    build:
+      target: dev
+    environment:
+      - FORGE_ENV=development
+    volumes:
+      - ./services/jcodemunch/src:/app/src:ro
+
+  sandbox:
+    build:
+      target: dev
+    environment:
+      - FORGE_ENV=development
+    volumes:
+      - ./services/sandbox/src:/app/src:ro

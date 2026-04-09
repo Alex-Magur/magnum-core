@@ -1,0 +1,1 @@
+"""sampling.limits — Implementation placeholder."""

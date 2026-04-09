@@ -1,0 +1,11 @@
+[project]
+name = "forge-security"
+version = "12.0.0"
+description = "Forge Security — Risk Engine, Key Management, Manifest Signing, Audit"
+requires-python = ">= 3.12"
+dependencies = [
+    "cryptography>=43.0.0",
+    "python-jose[cryptography]>=3.3.0",
+    "onnxruntime>=1.19.0",
+    "pydantic>=2.9.0",
+]

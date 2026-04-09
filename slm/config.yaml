@@ -1,0 +1,14 @@
+# SLM Service Configuration
+# ADR Б0.6, Б10
+server:
+  host: "0.0.0.0"
+  port: 8080
+  threads: 8
+  ctx_size: 4096
+
+model:
+  path: "/models/model.gguf"
+  gpu_layers: 0  # CPU-only for single-node VPS
+
+grammars:
+  tool_call: "/etc/slm/grammars/tool_call.gbnf"

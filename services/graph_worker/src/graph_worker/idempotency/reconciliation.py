@@ -1,0 +1,1 @@
+"""idempotency.reconciliation — Implementation placeholder."""

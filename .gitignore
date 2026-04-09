@@ -1,4 +1,9 @@
-# Secrets & Keys (Zero-Trust)
+# ============================================================================
+# Forge Core Ultra v12.0 — Diamond Citadel
+# .gitignore
+# ============================================================================
+
+# Secrets & Keys (Zero-Trust — ADR Б15)
 .env
 .env.*
 *.pem
@@ -7,7 +12,7 @@
 *.svid
 *jwks.json
 
-# Storage & Databases
+# Storage & Databases (ADR Б0.7)
 *.sqlite
 *.sqlite3
 *.db
@@ -15,13 +20,48 @@ storage/sqlite/*
 !storage/sqlite/.gitkeep
 storage/qdrant/*
 !storage/qdrant/.gitkeep
+storage/viking/*
+!storage/viking/.gitkeep
 
-# Caches & Logs
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+
+# Caches & Logs
 .cache/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
 *.log
 logs/
 
+# uv
+uv.lock
+
+# ONNX models (ADR Б2.3 — risk engine)
+*.onnx
+
+# SLM models (large files)
+*.gguf
+
+# Dev certificates
+deploy/mtls/dev-certs/
+
 # OS generated files
 .DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

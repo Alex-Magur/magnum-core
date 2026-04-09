@@ -1,0 +1,34 @@
+name: Supply Chain — Image Signing & SBOM
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ "v*" ]
+
+jobs:
+  sign-and-sbom:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write  # For cosign keyless signing
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Images
+        run: docker compose build
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign Images (cosign/sigstore)
+        run: echo "TODO: cosign sign for each service image"
+
+      - name: Generate SBOM (CycloneDX)
+        run: echo "TODO: syft or cyclonedx-bom generation"
+
+      - name: Upload SBOM Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom/

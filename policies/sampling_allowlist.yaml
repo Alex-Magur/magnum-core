@@ -1,0 +1,11 @@
+# MCP Sampling Allowlist — ADR Б4.2
+# Only authorized server_ids may request sampling
+version: "1.0"
+sampling:
+  max_calls_per_job: 20
+  max_input_bytes: 262144    # 256KB
+  max_output_tokens: 256
+  allowed_servers: []
+  # Example:
+  # - server_id: "jcodemunch"
+  #   spiffe_id: "spiffe://forge.local/jcodemunch"

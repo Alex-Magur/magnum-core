@@ -1,0 +1,1 @@
+"""sampling.allowlist — Implementation placeholder."""

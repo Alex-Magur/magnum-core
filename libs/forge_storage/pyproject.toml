@@ -1,0 +1,8 @@
+[project]
+name = "forge-storage"
+version = "12.0.0"
+description = "Forge Storage — SQLite Abstractions (control_plane, agent_state, code_index)"
+requires-python = ">= 3.12"
+dependencies = [
+    "pydantic>=2.9.0",
+]

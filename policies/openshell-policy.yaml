@@ -1,0 +1,24 @@
+# OpenShell Policy — ADR Б3.1
+# SSRF & DNS Rebinding Hardened
+version: "1.0"
+sandbox:
+  isolation_level: strict
+  network:
+    egress: opa_policy
+    l7_inspection:
+      protocol: rest
+      ssrf_protection:
+        deny_ip_literals: true
+        deny_private_ranges: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "169.254.0.0/16"]
+        deny_redirect_chains: true
+        deny_resolved_private_ips: true
+      rules:
+        - allow: ["GET", "POST", "PATCH"]
+          hosts: ["api.github.com"]
+  filesystem:
+    landlock: hard_requirement
+    mounts:
+      - path: /workspace
+        mode: rw
+  routing:
+    inference: local_proxy
