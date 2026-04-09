@@ -2,6 +2,11 @@ name: Jules Verification
 on:
   push:
     branches: [jules-workspace]
+
+# Выдаем боту права на запись в репозиторий
+permissions:
+  contents: write
+
 jobs:
   test_and_merge:
     runs-on: ubuntu-latest
