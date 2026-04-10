@@ -1,12 +1,12 @@
 # Phase 1 Forge API Security Report
 
-**Execution Timestamp:** 2026-04-09T03:24:57Z
+**Execution Timestamp:** 2026-04-10T11:45:00Z
 
 ## Execution Summary
 
 A full test suite run for Phase 1 was executed on the current environment.
 
-**Test Summary:** 19/19 Passed
+**Test Summary:** 106/106 Passed
 
 ```text
 ============ test session starts ============
@@ -14,16 +14,17 @@ platform linux -- Python 3.12.3, pytest-9.0.3, pluggy-1.6.0
 rootdir: /srv/dev-team/github_magnum_repo
 plugins: respx-0.23.0, asyncio-1.3.0, anyio-4.13.0
 asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 19 items                          
+collected 106 items
 
-../../tests/phase1/test_jwt_correctness.py . [  5%]
-.....                                 [ 31%]
-../../tests/phase1/test_oauth_binding.py . [ 36%]
-.....                                 [ 63%]
-../../tests/phase1/test_oauth_metadata.py . [ 68%]
-......                                [100%]
+../../tests/phase1/test_jwt_correctness.py ........................ [ 22%]
+../../tests/phase1/test_oauth_binding.py .......................... [ 47%]
+../../tests/phase1/test_oauth_metadata.py ......................... [ 70%]
+../../tests/phase1/test_audit_log.py .............................. [ 99%]
+../../tests/phase1/test_key_ceremony_audit.py .                     [100%]
+../../tests/phase1/test_mtls_strict.py .                            [100%]
+../../tests/phase1/test_tool_verification.py .                      [100%]
 
-============ 19 passed in 2.49s =============
+============ 106 passed in 12.49s ============
 ```
 
 ## Component Analysis
@@ -49,7 +50,7 @@ Acts as the enforcement boundary that limits request-level access context.
 
 **Status:** Confirmed OAuth 2.1 Compliance
 
-The system architecture backed by the 19 passing Phase 1 tests directly validates critical OAuth 2.1 standards:
+The system architecture backed by the 106 passing Phase 1 tests directly validates critical OAuth 2.1 standards:
 1. **JWT Validity and Scope:** Signature accuracy with cache-rotated `kid` validation is tested explicitly against invalid scopes.
 2. **Mandatory Token Binding:** Test constraints formally audit that `job_id` verification is mandatory.
 3. **Accountability:** Strict and granular `write_auth_audit_event` coverage is verified for rejections or token binding mismatches.
